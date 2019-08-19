@@ -1,0 +1,47 @@
+<div [ngClass]="shopping_mode?'cart':''">
+  <div class="sidebar-heading">
+    <span>My Cart</span>
+
+    <button class="btn btn-danger empty" *ngIf="shopping_mode; else elseRoute" (click)="deleteAllItems()">
+      <i class="fa fa-trash-o" aria-hidden="true"></i> Empty Cart</button>
+
+    <ng-template #elseRoute>
+      <input class="search" type="text" placeholder="Search item.." [(ngModel)]="search_item"/>
+      <a *ngIf="display_back_btn" href="/shopping/members">Back to shopping</a>
+    </ng-template>
+  </div>
+
+  <ng-container *ngIf="cart_items.length>0; else elseBlock">
+    <div class="table-div">
+      <table class="table">
+        <tbody>
+        <tr *ngFor="let item of cart_items"  [ngClass]="search_item?searchItem(item.name)?'mark':null:null">
+          <td scope="row" class="item-img-td"><img class="item-img" [src]="'../assets/pictures/'+item.img_path" [alt]="item.name"/></td>
+          <td class="name" *ngIf="shopping_mode; else elseName">{{(item.name.length>10)? (item.name | slice:0:15)+'..':(item.name)}}</td>
+          <ng-template #elseName>
+            <td class="name">{{item.name}}</td>
+          </ng-template>
+          <td class="amount">Qty {{item.amount}}</td>
+          <td>{{item.total_price.toFixed(2)}}₪</td>
+          <td class="delete" *ngIf="shopping_mode" (click)="deleteItem(item.product_id)"><img class="delete-img" src="https://i.imgur.com/YIxzH0s.png" alt="delete"/></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="buttons" [ngClass]="shopping_mode?'':'buttons-order'">
+      <button class="btn total-cart-price" [ngClass]="shopping_mode?'':'total-cart-price-order'" disabled>
+        <i *ngIf="shopping_mode" class="fa fa-shopping-cart" aria-hidden="true"></i>
+        <ng-template><span>Total Price: </span></ng-template>
+        {{total_cart_price.toFixed(2)}}₪
+      </button>
+      <button *ngIf="shopping_mode" class="btn check-out" routerLink="/order" (click)="navigateToOrder()" [disabled]="total_cart_price===0">Check Out</button>
+    </div>
+  </ng-container>
+
+
+  <ng-template #elseBlock>
+    <p *ngIf="shopping_mode" class="cart-empty">Cart is empty, start adding items</p>
+  </ng-template>
+</div>
+

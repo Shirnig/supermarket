@@ -1,0 +1,65 @@
+.row {
+  margin: 0;
+}
+
+.card-img-top {
+  object-fit: scale-down;
+  height: 160px;
+  padding-top: 12px;
+  margin: auto;
+}
+
+
+
+.price {
+  position: absolute;
+  bottom: 75px;
+  left: 15px;
+}
+
+.card-title {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-size: 0.75rem
+}
+
+.card-body {
+  padding: 20px 0;
+}
+
+.add-btn {
+  display: block;
+  width: 100%;
+}
+
+.add-img {
+  width: 20px;
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 20rem;
+  }
+}
+
+.amount-popup {
+  display: flex;
+}
+
+.plus, .minus {
+  background: transparent;
+  border: 0;
+  font-size: 20px;
+}
+
+.amount {
+  font-size: 20px;
+}
+
+.update {
+  margin: 0px 5px;
+  padding: 1px 4px;
+}
+
+
+

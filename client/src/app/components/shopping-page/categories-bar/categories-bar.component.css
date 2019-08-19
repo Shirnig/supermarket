@@ -1,0 +1,26 @@
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+.search {
+  border-radius: 20px;
+  border: 1px solid rgba(0,0,0,.3);
+  background-color: white;
+  padding-left: 8px;
+}
+
+.search:focus {
+  outline: none;
+  border: 1px solid #007bff;
+}
+
+.nav-link{
+  cursor: pointer;
+}
+
+@media (min-width: 992px) {
+  .nav-link {
+    padding-left: 2.5rem !important;
+  }
+}

@@ -1,0 +1,27 @@
+<div class="signup-form col-lg-4 col-12">
+  <form>
+    <h2>Sign Up</h2>
+    <p>It's free and only takes a minute.</p>
+    <hr>
+    <div class="form-group">
+      <input type="number" class="form-control" name="id" placeholder="Id" [(ngModel)]="step_one.user_id" (change)="checkId()" required="required">
+    </div>
+    <p class="error" *ngIf="errors.error_id && step_one.user_id !== null ">{{errors.error_id}}</p>
+    <div class="form-group">
+      <input type="email" class="form-control" name="email" placeholder="Email Address" [(ngModel)]="step_one.email" (change)="checkEmail()" required="required">
+    </div>
+    <p class="error" *ngIf="errors.error_email && step_one.email!==''">{{errors.error_email}}</p>
+    <div class="form-group">
+      <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="step_one.password" required="required">
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" [(ngModel)]="re_password" required="required">
+    </div>
+    <p class="error" *ngIf="errors.error_password">{{errors.error_password}}</p>
+    <p class="error" *ngIf="errors.error_page">{{errors.error_page}}</p>
+    <div class="form-group">
+      <button type="button" (click)="pageValid()"  class="btn btn-primary btn-block btn-lg">Continue</button>
+    </div>
+  </form>
+  <div class="text-center">Already have an account? <a routerLink="">Login here</a></div>
+</div>

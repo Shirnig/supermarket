@@ -1,0 +1,31 @@
+<div class="row justify-content">
+  <ng-container *ngFor="let product of inProducts">
+    <div class="card col-xs-12 col-md-3 col-xl-2" (click)="getCurrentProduct(product)">
+      <img [src]="'../assets/pictures/'+product.img_path" class="card-img-top" [alt]=product.name>
+      <div class="card-body">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text price">{{product.price}}₪</p>
+
+        <ng-container *ngIf="!inAdminMode">
+          <ng-template #popContent>
+            <div class="amount-popup">
+              <button class="plus" (click)="updateAmount('plus')"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+              <span class="amount">{{amount}}</span>
+              <button class="minus" (click)="updateAmount('minus')"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
+              <button class="btn btn-primary update" (click)="addItem(product._id); p.close()">GO</button>
+            </div>
+          </ng-template>
+
+          <button type="button" class="btn btn-primary add-btn" #p="ngbPopover" placement="top"
+                  [autoClose]="'outside'" [ngbPopover]="popContent">
+            <img class="add-img" src="https://i.imgur.com/Tmgt0bH.png" alt="add"/>
+          </button>
+        </ng-container>
+
+
+      </div>
+    </div>
+  </ng-container>
+
+</div>
+

@@ -1,0 +1,8 @@
+.container-fluid {
+  display: flex;
+  justify-content: space-around;
+}
+
+.cart, .order-form {
+  width: 40%;
+}

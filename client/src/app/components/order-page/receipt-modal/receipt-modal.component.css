@@ -1,0 +1,50 @@
+.modal-title {
+  text-align: center;
+}
+
+.download {
+  color: #007bff !important;
+  cursor: pointer;
+}
+
+.download:hover {
+  text-decoration: underline !important;
+}
+
+
+#logo {
+  width: 25%;
+}
+
+
+
+thead {
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+
+.first-header{
+  justify-content: space-between;
+  margin: 5px;
+  align-items: center;
+}
+
+.sender {
+  margin-bottom: 15px;
+}
+
+.second-header {
+  justify-content: space-around;
+}
+
+.second-header p, .second-header h5, .sender p{
+  padding: 0;
+  margin: 0;
+}
+
+.total-price {
+  text-align: right;
+  margin-right: 4rem;
+}
+
+

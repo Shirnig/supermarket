@@ -1,0 +1,14 @@
+<header class="navbar navbar-light">
+  <img id="logo" src="../assets/pictures/logo.jpg" alt="logo"/>
+  <div class="right-side">
+    <span class="user" *ngIf="username; else elseBlock">Hello {{username}}</span>
+    <ng-template #elseBlock><span class="user">Hello Guest</span></ng-template>
+    <div id="logout" *ngIf="username" (click)="logout()">
+      <a href="/">
+        <span>Logout</span>
+        <img id="logout-icon" src="https://i.imgur.com/trnmvWT.png" alt="logout"/>
+      </a>
+    </div>
+  </div>
+</header>
+

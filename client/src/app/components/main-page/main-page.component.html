@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row">
+    <app-login *ngIf="!authenticated; else elseBlock" (outData)="login($event)" [inError]="login_error" class="login col-xs-10 col-md-4 col-xl-4"></app-login>
+    <ng-template #elseBlock><app-customize-info [inCustomizeInfo]="user_data" class="customize col-xs-10 col-md-4 col-xl-4"></app-customize-info></ng-template>
+    <app-about class="about col-xs-10 col-md-4 col-xl-4"></app-about>
+    <app-info [inInfo]="info_data" class="info col-xs-10 col-md-4 col-xl-4"></app-info>
+  </div>
+</div>
+

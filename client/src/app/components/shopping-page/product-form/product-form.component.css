@@ -1,0 +1,12 @@
+.container-fluid {
+  width: 23rem;
+}
+
+header{
+  margin-top: 15px;
+}
+
+label {
+  width: 100%;
+  margin: 0;
+}

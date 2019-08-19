@@ -1,0 +1,53 @@
+<div class="order-form">
+  <form *ngIf="!ordered; else elseOrdered">
+    <ng-container>
+
+      <h2>ORDER</h2>
+
+      <div class="form-group">
+        <label>City
+          <input type="text" class="form-control" name="city" (dblclick)="populateInputs()" [(ngModel)]="order.city" required="required">
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label>Street
+          <input type="text" class="form-control" name="street" [(ngModel)]="order.street" required="required">
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label>Pick Shipping Date
+          <input type="date" class="form-control" name="date_to_send" [(ngModel)]="order.date_to_send" required="required">
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label>Credit Card
+          <input type="number" maxlength="16" class="form-control" name="credit_card" [(ngModel)]="order.credit_card" required="required">
+        </label>
+        <span class="pay-icons">
+          <img src="https://i.imgur.com/xuoYFQD.png" alt="visa"/>
+          <img src="https://i.imgur.com/bdsKkhn.png" alt="mastercard"/>
+          <img src="https://i.imgur.com/YItUpxY.png" alt="amex"/>
+        </span>
+      </div>
+
+      <p class="error" *ngIf="error">{{error}}</p>
+      <div class="form-group">
+        <button type="button" class="btn btn-primary btn-block btn-lg orderBtn" (click)="createOrder()">Order</button>
+      </div>
+    </ng-container>
+  </form>
+
+  <ng-template #elseOrdered>
+    <div class="ordered">
+      <h3>Ordered Placed Successfully!</h3>
+      <p>click below to view and download your receipt</p>
+      <button (click)="open()" class="btn btn-primary">Receipt</button>
+      <button class="btn btn-primary"><a class="back-to" href="">Back To Home Page</a></button>
+    </div>
+  </ng-template>
+
+</div>
+

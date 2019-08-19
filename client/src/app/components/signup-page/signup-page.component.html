@@ -1,0 +1,6 @@
+<div class="container">
+  <div class="row">
+    <app-step-one class="col-12" *ngIf="!step_one; else elseBlock" (outStepOne)="getStepOne($event)"></app-step-one>
+    <ng-template #elseBlock><app-step-two class="col-12" (outStepTwo)="getStepTwo($event)"></app-step-two></ng-template>
+  </div>
+</div>

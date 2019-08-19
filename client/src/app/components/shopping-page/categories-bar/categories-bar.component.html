@@ -1,0 +1,7 @@
+<ul class="navbar-nav">
+  <li><input type="text" class="search" placeholder="search" (input)="searchProduct($event.target.value)"/></li>
+  <li class="nav-item" *ngFor="let category of categories">
+    <a class="nav-link" (click)="getProductsByCategory(category._id)" >{{category.category_name}}</a>
+  </li>
+</ul>
+

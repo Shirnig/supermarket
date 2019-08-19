@@ -1,0 +1,90 @@
+<div class="modal-header">
+  <a class="download" (click)="convertToPDF()">download
+    <i class="fa fa-arrow-down" aria-hidden="true"></i>
+  </a>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+  <div class="modal-body">
+    <div id="to-download">
+      <div class="row first-header">
+        <h2 class="modal-title">RECEIPT</h2>
+        <img id="logo" src="../assets/pictures/logo_black_and_white.jpg" alt="logo"/>
+      </div>
+
+
+      <div class="sender col-4">
+        <b>ShopShop Inc.</b>
+        <p>Ben-Yehuda Street</p>
+        <p>Tel Aviv, 123432</p>
+        <p>ISRAEL</p>
+      </div>
+
+
+      <div class="row second-header">
+        <div class="bill">
+          <h5>BILL TO</h5>
+          <p>{{inReceiptDetails.user.first_name}} {{inReceiptDetails.user.last_name}}</p>
+          <p>{{inReceiptDetails.user.street}} Street</p>
+          <p>{{inReceiptDetails.user.street}}</p>
+          <p>ISRAEL</p>
+        </div>
+
+        <div class="ship">
+          <h5>SHIP TO</h5>
+          <p>{{inReceiptDetails.user.first_name}} {{inReceiptDetails.user.last_name}}</p>
+          <p>{{inReceiptDetails.order.street}} Street</p>
+          <p>{{inReceiptDetails.order.street}}</p>
+          <p>ISRAEL</p>
+        </div>
+
+        <div class="titles">
+          <h5>RECEIPT #</h5>
+          <h5>RECEIPT DATE</h5>
+          <h5>SHIPPING DATE</h5>
+        </div>
+
+        <div class="details">
+          <p>{{receipt_number}}</p>
+          <p>{{receipt_date | date }}</p>
+          <p>{{inReceiptDetails.order.date_to_send | date}}</p>
+        </div>
+
+      </div>
+
+
+      <ng-container *ngIf="inReceiptDetails.items.length>0">
+        <div class="table-div">
+          <table class="table">
+            <thead>
+            <tr>
+              <th></th>
+              <th>DESCRIPTION</th>
+              <th>QTY</th>
+              <th>UNIT PRICE</th>
+              <th>AMOUNT</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of inReceiptDetails.items; let i = index">
+              <td class="index">{{i+1}}</td>
+              <td class="name">{{item.name}}</td>
+              <td class="qty">{{item.amount}}</td>
+              <td class="unit_price">{{item.total_price/item.amount}}</td>
+              <td>{{item.total_price.toFixed(2)}}₪</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <h5 class="total-price">TOTAL {{inReceiptDetails.total_price.toFixed(2)}}₪</h5>
+      </ng-container>
+
+  </div>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>

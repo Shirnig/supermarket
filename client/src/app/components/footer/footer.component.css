@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Francois+One&display=swap');
+
+.navbar {
+  font-family: 'Francois One', sans-serif;
+  background-color: #ff9f00;
+  color: white;
+  margin-bottom: 0;
+}
+
+#email {
+  margin-right: 40px;
+}
+
+.footer-icons {
+  width: 20px;
+  height: 20px;
+  margin-right: 2px;
+}
+

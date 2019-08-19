@@ -1,0 +1,44 @@
+<div class="container-fluid">
+  <header>
+    <h4>{{add_mode?'Add Product':'Edit Product'}}</h4>
+  </header>
+  <div class="signup-form">
+    <form>
+
+      <div class="form-group">
+        <label>Name
+          <input type="text" class="form-control" name="name" [(ngModel)]="product.name" required="required">
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label>Category
+          <select class="form-control" id="city" name="city" [(ngModel)]="product.category_id._id">
+            <option hidden>{{clickedProductCategory?clickedProductCategory.category_name:'Choose Category'}}</option>
+            <option *ngFor="let category of categories" [value]="category._id">{{category.category_name}}</option>
+          </select>
+        </label>
+      </div>
+
+
+      <div class="form-group">
+        <label>Price
+          <input type="number" class="form-control" name="price" [(ngModel)]="product.price" required="required">
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label>Image
+          <input type="file" class="form-control" placeholder="" name="img" #imgFile accept="image/*" (change)="setImg($event.target.files[0])" required="required">
+        </label>
+      </div>
+
+      <!--<p class="error" *ngIf="error">{{error}}</p>-->
+      <div class="form-group">
+        <button type="button" class="btn btn-primary btn-block btn-lg" (click)="createProduct(); emptyInputFile(imgFile)">{{add_mode?'ADD':'SAVE'}}</button>
+      </div>
+    </form>
+  </div>
+
+
+</div>

@@ -1,0 +1,34 @@
+<div class="login-form">
+  <div class="form">
+    <div class="avatar">
+      <img src="https://i.imgur.com/ZxlRGb3.png" alt="Avatar">
+    </div>
+    <h2 class="text-center">Member Login</h2>
+    <p>Welcome, {{user.first_name}}</p>
+
+
+    <ng-container *ngIf="!user.is_admin && action.details">
+      <div class="notification">
+        <h6>Notification</h6>
+        <ng-container *ngIf="action.details?.cart; else elseBlock">
+          <span>you have open cart from {{action.details.cart.date_created}}. </span>
+          <span *ngIf="action.details.cart.total_cart_price">current cart price is {{action.details.cart.total_cart_price.toFixed(2)}}₪</span>
+        </ng-container>
+        <ng-template #elseBlock>
+          <span>your last purchase was on {{action.details.order?.date_of_order}} </span>
+          <span>with a cost of {{action.details.order.final_price.toFixed(2)}}₪</span>
+        </ng-template>
+      </div>
+    </ng-container>
+
+
+    <ng-container *ngIf="!user.is_admin && !action.details">
+      <p>shop your first cart now</p>
+    </ng-container>
+
+
+    <div class="form-group">
+      <button type="button" (click)="navigate()" class="btn btn-primary btn-lg btn-block">{{action.type}}</button>
+    </div>
+  </div>
+</div>
