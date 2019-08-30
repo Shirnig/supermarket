@@ -1,5 +1,5 @@
-# supermarket
-project in MEAN stack<br/>
+# Supermarket
+Project in MEAN stack<br/>
 More technilogies used: typescript, ng-bootstrap, html2canvas, jspdf, lodash, moment.js
 
 ## Overview
